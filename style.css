@@ -1812,22 +1812,47 @@ header{position:sticky;top:0;z-index:10000}
 .menu-quicknav a.active{
   background:var(--color-primary,#ff9466); color:#fff; border-color:transparent;
 }
-/* ===== Mobile header scaling ===== */
-
-/* ===== Mobile header sizing per page ===== */
-@media (max-width: 720px){
-  /* Default (affects Menu + About): make headings BIGGER on phones */
-  .page-hero h1{ font-size:1.9rem !important; line-height:1.2 !important; }
-  .menu-section h2{ font-size:1.6rem !important; line-height:1.25 !important; }
-  .about-content h2{ font-size:1.5rem !important; line-height:1.25 !important; }
+/* ===== FORCE MOBILE HEADER SIZING (wins over everything) ===== */
+@media (max-width: 900px){
 
   /* HOME: huge shrink on hero */
-  body.index .hero h1{ font-size:1.1rem !important; line-height:1.15 !important; }
-  body.index .hero p{ font-size:.9rem !important; line-height:1.3 !important; }
-  body.index .hero-content{ padding:2rem 1rem !important; }
+  html body.index .hero h1{
+    font-size: 1.05rem !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0 !important;
+  }
+  html body.index .hero p{
+    font-size: .90rem !important;
+    line-height: 1.30 !important;
+  }
+  html body.index .hero-content{
+    padding: 1.75rem 1rem !important;
+  }
 
-  /* VISIT: huge shrink on hero */
-  body.location .page-hero h1{ font-size:1.1rem !important; line-height:1.15 !important; }
-  body.location .page-hero p{ font-size:.95rem !important; line-height:1.35 !important; }
-  body.location .page-hero{ padding:4rem 1.25rem 2rem !important; }
+  /* VISIT: huge shrink on hero image header */
+  html body.location .page-hero h1{
+    font-size: 1.05rem !important;
+    line-height: 1.15 !important;
+  }
+  html body.location .page-hero p{
+    font-size: .95rem !important;
+    line-height: 1.35 !important;
+  }
+  html body.location .page-hero{
+    padding: 3.5rem 1rem 1.75rem !important;
+  }
+
+  /* MENU + ABOUT: make headers bigger on phones */
+  html body .page-hero h1{
+    font-size: 1.95rem !important;
+    line-height: 1.20 !important;
+  }
+  html body .menu-section h2{
+    font-size: 1.65rem !important;
+    line-height: 1.25 !important;
+  }
+  html body .about-content h2{
+    font-size: 1.55rem !important;
+    line-height: 1.25 !important;
+  }
 }
