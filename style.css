@@ -1741,40 +1741,39 @@ header{position:sticky;top:0;z-index:10000}
   .back-to-top{ width:44px; height:44px; right:.8rem; bottom:.8rem }
   .back-to-top svg{ width:20px; height:20px }
 }
-/* Quicknav = pill buttons, single row on phones */
+/* PHONE: quicknav as single-row pill buttons */
 @media (max-width: 768px){
   .menu-quicknav{
-    display:flex;
-    gap:.5rem;
-    justify-content:flex-start;
-    align-items:center;
-    overflow-x:auto;
-    white-space:nowrap;
-    padding:.6rem 1rem;      /* keep sticky top from before */
-    text-align:left;         /* override center */
-    border-bottom:1px solid rgba(0,0,0,.08);
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: .5rem !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    padding: .6rem 1rem !important;
+    text-align: left !important;
     -webkit-overflow-scrolling: touch;
   }
   .menu-quicknav a{
-    flex:0 0 auto;           /* prevent wrapping to next line */
-    background:#fff;
-    color:#2b221c;
-    border:1px solid rgba(0,0,0,.12);
-    border-radius:999px;
-    padding:.55rem .9rem;
-    font-size:.95rem;
-    font-weight:700;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    display: inline-flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;   /* no wrapping to next line */
+    padding: .55rem .9rem !important;
+    border-radius: 999px !important;
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,.12) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08) !important;
+    font-weight: 700 !important;
+    font-size: .95rem !important;     /* downsize from heading styles */
+    line-height: 1 !important;
+    color: #2b221c !important;
   }
   .menu-quicknav a:hover{
-    color:#fff;
-    background:var(--color-primary, #ff9466);
-    border-color:transparent;
+    background: var(--color-primary, #ff9466) !important;
+    color: #fff !important;
+    border-color: transparent !important;
   }
-  /* optional: lighter desktop-size pills on very small phones */
-  @media (max-width: 420px){
-    .menu-quicknav a{ padding:.5rem .75rem; font-size:.9rem; }
-  }
-  /* hide iOS scrollbar track without disabling scroll */
+  /* hide scrollbar track without disabling scroll */
   .menu-quicknav::-webkit-scrollbar{height:0}
 }
