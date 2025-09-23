@@ -1610,9 +1610,9 @@ img[alt="Signature Stackers"] {
   scroll-margin-top: 0;
 }
 @media (max-width: 768px) {
-  .nav-toggle { display: flex; z-index: 1002; }
+  .nav-toggle { display: flex !important; z-index: 10000 !important; }
 
-  .nav-links {
+  .nav-links{
     position: fixed !important;
     inset: 0 !important;
     display: none !important;
@@ -1620,23 +1620,23 @@ img[alt="Signature Stackers"] {
     justify-content: center !important;
     align-items: center !important;
     gap: 1rem !important;
-    background: rgba(0,0,0,0.6) !important;
+    background: rgba(0,0,0,0.7) !important;
     backdrop-filter: blur(4px);
-    z-index: 1001 !important;
+    z-index: 9999 !important;
     padding: 2rem !important;
     margin: 0 !important;
   }
-  .nav-links.open { display: flex !important; }
+  .nav-links.open{ display: flex !important; }
 
-  .nav-links li { width: 100%; text-align: center; border: 0; }
-  .nav-links li a {
-    display: inline-block;
-    background: #fff;
-    color: #222;
-    padding: 0.9rem 1.4rem;
-    border-radius: 999px;
-    font-size: 1.2rem;
+  .nav-links li { width: 100% !important; text-align: center !important; border: 0 !important; }
+  .nav-links li a{
+    display: inline-block !important;
+    background: #fff !important;
+    color: #222 !important;
+    padding: 0.9rem 1.4rem !important;
+    border-radius: 999px !important;
+    font-size: 1.2rem !important;
   }
 
-  body.nav-open { overflow: hidden; }
+  body.nav-open{ overflow: hidden !important; }
 }
