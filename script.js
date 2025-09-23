@@ -1,7 +1,6 @@
-// Mobile popup nav toggle
 document.addEventListener('DOMContentLoaded', () => {
   const btn  = document.querySelector('.nav-toggle');
-  const menu = document.getElementById('site-menu');
+  const menu = document.getElementById('site-menu'); // MUST exist on every page
   if (!btn || !menu) return;
 
   const openMenu = () => {
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('nav-open');
     btn.setAttribute('aria-expanded', 'true');
     menu.setAttribute('aria-hidden', 'false');
-    // clear legacy inline styles
     menu.style.display = menu.style.opacity = menu.style.visibility = '';
   };
 
@@ -27,8 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     (menu.classList.contains('open') ? closeMenu : openMenu)();
   });
 
-  // Close on link click, ESC, or resize to desktop
   menu.addEventListener('click', e => { if (e.target.tagName === 'A') closeMenu(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
   window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+
+  // sanity beacon in console
+  console.log('[nav] bound', { btn: !!btn, menu: !!menu });
 });
