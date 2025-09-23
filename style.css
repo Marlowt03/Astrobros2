@@ -1741,3 +1741,40 @@ header{position:sticky;top:0;z-index:10000}
   .back-to-top{ width:44px; height:44px; right:.8rem; bottom:.8rem }
   .back-to-top svg{ width:20px; height:20px }
 }
+/* Quicknav = pill buttons, single row on phones */
+@media (max-width: 768px){
+  .menu-quicknav{
+    display:flex;
+    gap:.5rem;
+    justify-content:flex-start;
+    align-items:center;
+    overflow-x:auto;
+    white-space:nowrap;
+    padding:.6rem 1rem;      /* keep sticky top from before */
+    text-align:left;         /* override center */
+    border-bottom:1px solid rgba(0,0,0,.08);
+    -webkit-overflow-scrolling: touch;
+  }
+  .menu-quicknav a{
+    flex:0 0 auto;           /* prevent wrapping to next line */
+    background:#fff;
+    color:#2b221c;
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:999px;
+    padding:.55rem .9rem;
+    font-size:.95rem;
+    font-weight:700;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+  }
+  .menu-quicknav a:hover{
+    color:#fff;
+    background:var(--color-primary, #ff9466);
+    border-color:transparent;
+  }
+  /* optional: lighter desktop-size pills on very small phones */
+  @media (max-width: 420px){
+    .menu-quicknav a{ padding:.5rem .75rem; font-size:.9rem; }
+  }
+  /* hide iOS scrollbar track without disabling scroll */
+  .menu-quicknav::-webkit-scrollbar{height:0}
+}
