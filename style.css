@@ -1945,3 +1945,59 @@ body.about .page-hero p {
 }
 body.nav-open .navbar{ z-index:0 !important; }
 .nav-toggle.open span{ background-color:#fff !important; }
+/* ========= DESKTOP RESTORE (leave computer view as before) ========= */
+@media (min-width: 901px){
+  /* Home hero back to original full-bleed height on desktop */
+  body.index .hero{
+    height: 100vh !important;
+    min-height: 500px !important;
+  }
+  /* Visit hero: keep your desktop look */
+  body.location .page-hero{
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    min-height: 40vh !important;
+    padding: 4rem 2rem 3rem !important;
+  }
+}
+
+/* ========= MOBILE/TABLET STRONGER EFFECT (phones + small tablets) ========= */
+@media (max-width: 900px){
+
+  /* HOME: shrink hero more so video feels more zoomed out (no bars since it's cover) */
+  body.index .hero{
+    height: 48vh !important;       /* stronger than before */
+    min-height: 300px !important;
+  }
+  @media (max-width: 600px){
+    body.index .hero{ height: 44vh !important; min-height: 260px !important; }
+  }
+  /* keep video filling the box so no black bars */
+  body.index .video-wrapper video,
+  body.index .hero-video{
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  /* VISIT: make header image smaller and fully visible on mobile only */
+  body.location .page-hero{
+    min-height: 28vh !important;
+    padding: 2rem 1rem 1.25rem !important;
+    background-size: contain !important;     /* full image visible */
+    background-position: center center !important;
+    background-repeat: no-repeat !important; /* prevent tiling */
+  }
+
+  /* MENU + ABOUT: make headers larger on mobile (override tiny text) */
+  body.menu .page-hero h1,
+  body.about .page-hero h1{
+    font-size: clamp(1.9rem, 6.5vw, 2.4rem) !important;
+    line-height: 1.18 !important;
+  }
+  body.menu .page-hero p,
+  body.about .page-hero p{
+    font-size: clamp(0.98rem, 3.6vw, 1.15rem) !important;
+    line-height: 1.34 !important;
+  }
+}
