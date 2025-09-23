@@ -1643,30 +1643,71 @@ img[alt="Signature Stackers"] {
 
   body.nav-open{ overflow: hidden !important; }
 }
-/* NAV ABOVE HERO + NO CLIPPING ON MOBILE */
-header { position: sticky; top: 0; z-index: 10000; }
-.navbar { position: relative; z-index: 10001; }
-
-/* remove the wavy clip on small screens so the dropdown isn't cut off */
-@media (max-width: 768px) {
-  .navbar { clip-path: none; }               /* <-- stops clipping the menu */
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    z-index: 10002;                           /* above hero/video */
-    background: var(--color-background);
-    box-shadow: 0 8px 24px rgba(0,0,0,.15);
-    display: flex;
-    flex-direction: column;
-    margin: 0; padding: .75rem 0;
-
-    /* closed state */
-    opacity: 0; max-height: 0; overflow: hidden; pointer-events: none;
-    transition: max-height .25s ease, opacity .25s ease;
+/* =========================
+   NAV ABOVE HERO + NO CLIP
+   ========================= */
+header{position:sticky;top:0;z-index:10000}
+.navbar{position:relative;z-index:10001}
+@media (max-width:768px){
+  .navbar{clip-path:none}                 /* stops dropdown clipping */
+  .nav-links{
+    position:absolute;top:100%;left:0;right:0;z-index:10002;
+    background:var(--color-background);
+    margin:0;padding:.6rem 0;box-shadow:0 10px 24px rgba(0,0,0,.12);
+    display:flex;flex-direction:column;
+    max-height:0;opacity:0;overflow:hidden;pointer-events:none;
+    transition:max-height .25s ease,opacity .25s ease;
   }
-  .nav-links.open {                           /* opened by JS */
-    opacity: 1; max-height: 24rem; pointer-events: auto;
+  .nav-links.open{max-height:24rem;opacity:1;pointer-events:auto}
+  .nav-links li a{display:block;padding:1rem 1.25rem;font-size:1.05rem;border:0}
+}
+
+/* ======================================
+   HOMEPAGE FEATURE TILES: bigger desktop
+   ====================================== */
+/* keep 3-up on laptops/tablets */
+@media (max-width:900px){
+  .features{grid-template-columns:repeat(2,1fr)}
+}
+/* stack on phones */
+@media (max-width:720px){
+  .features{grid-template-columns:1fr}
+  .feature-item{grid-template-columns:1fr;gap:.8rem;padding:1rem}
+}
+/* make each card larger only on desktop */
+@media (min-width:1024px){
+  .feature-item{grid-template-columns:40% 1fr;padding:1.5rem}
+  .feature-item img{min-height:150px;max-height:220px}
+  .feature-text h2{font-size:1.6rem}
+  .feature-text p{font-size:.95rem}
+  .feature-text .btn{font-size:.85rem;padding:.6rem 1.2rem}
+}
+
+/* =========================================
+   MENU: sticky quicknav + responsive grids
+   ========================================= */
+/* sticky sub-nav under the main header */
+.menu-quicknav{
+  position:sticky;top:4rem;z-index:900;
+  background:var(--color-background);
+  padding:.6rem .5rem;text-align:center;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.menu-quicknav a{display:inline-block;margin:0 1rem;font-weight:700}
+.menu-quicknav a:hover{color:var(--color-primary);border-bottom:2px solid var(--color-primary)}
+/* anchor offset so headings aren’t hidden */
+#flavors,#stackers,#dubai,#taiyaki{scroll-margin-top:4.2rem}
+
+/* base grid already handles desktop; make phones 2–3 up */
+@media (max-width:480px){
+  .menu-grid,
+  .menu-grid.stackers-grid,
+  .menu-grid.dubai-grid,
+  .menu-grid.taiyaki-grid{
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:.6rem;
   }
-  .nav-links li a { display:block; padding: .9rem 1.25rem; font-size: 1.05rem; }
+  .menu-item img{height:170px}
+  .menu-item h3{font-size:1rem}
+  .menu-item p{font-size:.82rem}
 }
