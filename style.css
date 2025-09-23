@@ -1,7 +1,5 @@
-/*
- * AstroBros Ice Cream & Coffee - Complete CSS Rewrite
- * All components included with working mobile navigation
- */
+/* AstroBros Ice Cream & Coffee - Complete CSS Rewrite */
+/* All components included with working mobile navigation */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
@@ -29,6 +27,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  /* Enable smooth scrolling for anchor links across the site */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -151,8 +151,12 @@ header {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile Navigation - Simple Dropdown */
+/* Mobile Navigation - Dropdown Menu */
 @media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+    z-index: 1001;
+  }
   .nav-links {
     position: absolute;
     top: 100%;
@@ -165,28 +169,27 @@ header {
     z-index: 1000;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: none;
+    /* Hidden by default (closed state) */
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
   }
-  
   .nav-links.open {
-    display: flex;
+    /* Visible when open */
+    opacity: 1;
+    pointer-events: auto;
+    max-height: 25rem;  /* allows dropdown to expand (adjust if more links added) */
   }
-  
-  .nav-toggle {
-    display: flex;
-    z-index: 1001;
-  }
-  
   .nav-links li {
     width: 100%;
     margin: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
-  
   .nav-links li:last-child {
     border-bottom: none;
   }
-  
   .nav-links li a {
     display: block;
     padding: 1rem 2rem;
@@ -196,12 +199,10 @@ header {
     text-decoration: none;
     border-bottom: none;
   }
-  
   .nav-links li a:hover,
   .nav-links li a.active {
     background-color: var(--color-primary);
-    color: white;
-    border-bottom: none;
+    color: #ffffff;
   }
 }
 
@@ -221,6 +222,8 @@ header {
   background-position: center;
   background-color: var(--color-secondary);
 }
+
+/* ... (remaining styles unchanged) ... */
 
 .video-wrapper {
   position: absolute;
