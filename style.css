@@ -1812,18 +1812,20 @@ header{position:sticky;top:0;z-index:10000}
 .menu-quicknav a.active{
   background:var(--color-primary,#ff9466); color:#fff; border-color:transparent;
 }
-/* ===== MOBILE HEADER SIZES ===== */
+/* ===== Mobile header scaling ===== */
+
+/* Global mobile shrink (applies everywhere, mild) */
 @media (max-width: 720px){
-  h1, .hero h1, .page-hero h1 {
-    font-size: 1.6rem !important;   /* smaller than desktop */
-    line-height: 1.2 !important;
-  }
-  h2, .feature-text h2, .menu-section h2 {
-    font-size: 1.25rem !important;
-    line-height: 1.25 !important;
-  }
-  h3, .menu-item h3 {
-    font-size: 1rem !important;
+  h1, .hero h1, .page-hero h1 { font-size: 1.6rem !important; line-height: 1.25 !important; }
+  h2, .feature-text h2, .menu-section h2, .about-content h2 { font-size: 1.25rem !important; }
+  h3, .menu-item h3 { font-size: 1rem !important; }
+}
+
+/* EXTRA shrink for Home + Visit only */
+@media (max-width: 720px){
+  body.index h1, body.index h2,
+  body#top.location h1, body#top.location h2 {
+    font-size: 1.2rem !important;
     line-height: 1.2 !important;
   }
 }
