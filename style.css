@@ -1,3 +1,4 @@
+
 /*
  * AstroBros Ice Cream & Coffee - Fixed Mobile Optimization
  * Video and header sizing corrected
@@ -167,15 +168,10 @@ header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
   
   .nav-links.open {
     display: flex;
-    opacity: 1;
-    visibility: visible;
   }
   
   .nav-toggle {
