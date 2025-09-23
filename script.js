@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const menu = document.querySelector('#site-menu') || document.querySelector('.nav-links');
   if (btn && menu) {
     const setState = (open) => {
+      document.body.classList.toggle('nav-open', open);
       menu.classList.toggle('open', open);
       btn.classList.toggle('open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
