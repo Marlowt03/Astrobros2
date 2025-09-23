@@ -1643,3 +1643,30 @@ img[alt="Signature Stackers"] {
 
   body.nav-open{ overflow: hidden !important; }
 }
+/* NAV ABOVE HERO + NO CLIPPING ON MOBILE */
+header { position: sticky; top: 0; z-index: 10000; }
+.navbar { position: relative; z-index: 10001; }
+
+/* remove the wavy clip on small screens so the dropdown isn't cut off */
+@media (max-width: 768px) {
+  .navbar { clip-path: none; }               /* <-- stops clipping the menu */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    z-index: 10002;                           /* above hero/video */
+    background: var(--color-background);
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    display: flex;
+    flex-direction: column;
+    margin: 0; padding: .75rem 0;
+
+    /* closed state */
+    opacity: 0; max-height: 0; overflow: hidden; pointer-events: none;
+    transition: max-height .25s ease, opacity .25s ease;
+  }
+  .nav-links.open {                           /* opened by JS */
+    opacity: 1; max-height: 24rem; pointer-events: auto;
+  }
+  .nav-links li a { display:block; padding: .9rem 1.25rem; font-size: 1.05rem; }
+}
