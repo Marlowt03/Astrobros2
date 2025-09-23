@@ -1861,3 +1861,17 @@ header{position:sticky;top:0;z-index:10000}
     object-fit: contain !important;   /* show full frame, no crop */
     background-color: #000;           /* letterbox bars if needed */
   }
+@media (max-width: 900px){
+  body.location .page-hero h1 {
+    font-size: 1.1rem !important;
+    line-height: 1.2 !important;
+  }
+  body.location .page-hero p {
+    font-size: .95rem !important;
+    line-height: 1.35 !important;
+    max-width: 32rem !important;
+  }
+  body.location .page-hero {
+    padding: 2.5rem 1rem 1.5rem !important;
+  }
+}
