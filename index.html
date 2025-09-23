@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>AstroBros â€" Out-of-This-World Ice Cream</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css"/>
+
+<style>
+.feature-item img,
+.flavor-card img {
+  transition: transform 0.25s ease;
+}
+.feature-item img:hover,
+.flavor-card img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+</style>
+<script>
+window.addEventListener('load', function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.nav-links');
+  
+  if (toggle && links) {
+    toggle.onclick = function() {
+      if (links.style.display === 'flex') {
+        links.style.display = 'none';
+        toggle.classList.remove('open');
+      } else {
+        links.style.display = 'flex';
+        links.style.opacity = '1';
+        links.style.visibility = 'visible';
+        toggle.classList.add('open');
+      }
+    };
+  }
+});
+</script>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo brand-name">ASTROBROS</a>
+      <ul class="nav-links">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="location.html">Visit</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+ <!-- HERO -->
+<section class="hero">
+  <div class="video-wrapper" aria-hidden="true">
+    <video id="heroVideo"
+           class="hero-video"
+           autoplay
+           muted
+           playsinline
+           webkit-playsinline
+           loop
+           preload="auto" preload="metadata">
+
+      <source src="./videos/astrobros_hero.m4v" type="video/mp4" />
+      <source src="./videos/astrobros_hero.m4v" type="video/x-m4v" />
+      <!-- Optional: add a webm if you have one -->
+      <!-- <source src="./videos/astrobros_hero.webm" type="video/webm" /> -->
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Welcome to AstroBros</h1>
+    <p>Out-of-this-world ice cream served fresh in Parma.</p>
+    <div class="hero-buttons">
+      <a class="btn primary" href="menu.html">Explore Our Menu</a>
+      <a class="btn secondary" href="location.html#visit-card">Order Now</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Try to kick autoplay; if blocked, start on first interaction
+  const v = document.getElementById('heroVideo');
+  function tryPlay() {
+    if (!v) return;
+    v.muted = true; // ensure muted stays true
+    const p = v.play?.();
+    if (p && typeof p.catch === 'function') {
+      p.catch(() => {
+        // wait for a tap/click to start playback
+        const onInteract = () => {
+          v.play?.().catch(() => {});
+          window.removeEventListener('click', onInteract);
+          window.removeEventListener('touchstart', onInteract, {passive:true});
+        };
+        window.addEventListener('click', onInteract);
+        window.addEventListener('touchstart', onInteract, {passive:true});
+      });
+    }
+  }
+  document.addEventListener('DOMContentLoaded', tryPlay);
+</script>
+
+    <!-- FEATURES -->
+    <section class="feature-section">
+      <div class="features">
+<div class="feature-item">
+        <a href="menu.html#stackers"><img src="images/stacker6.png" alt="Signature Stacker"/></a>
+        <div class="feature-text">
+          <h2>Stacker Menu</h2>
+          <p>
+            New to AstroBros, our stacker collection brings towering layers of
+            ice cream, sauces, mix-ins and whipped cream. Experience decadent
+            combinations like cookie butter, cosmic crunch and more.
+          </p>
+          <a class="btn primary" href="menu.html#stackers">Explore Stackers</a>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <a href="menu.html#dubai"><img src="images/dubai_strawberry.png" alt="Dubai Chocolate"/></a>
+        <div class="feature-text">
+          <h2>Dubai Chocolate Menu</h2>
+          <p>
+            Our Dubai chocolate collection brings a bold twist to our menu. Enjoy
+            ice cream nachos, brownie blasts, sundae cups and more each infused
+            with rich chocolate and hints of pistachio.
+          </p>
+          <a class="btn" href="menu.html#dubai">Explore Dubai</a>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <a href="menu.html#taiyaki"><img src="images/IMG_9309.PNG" alt="Taiyaki Treats"/></a>
+        <div class="feature-text">
+          <h2>Taiyaki Treats</h2>
+          <p>
+            Delight in our taiyaki fish cones and cups, filled with your favorite
+            ice cream flavours and topped with sweet perfection.
+          </p>
+          <a class="btn primary" href="menu.html#taiyaki">Explore Taiyaki</a>
+        </div>
+</div></section>
+
+    <!-- FLAVOR OF THE MONTH -->
+    <section class="flavor-month">
+      <h2>Flavor of the Month</h2>
+      <div class="flavor-card">
+        <a href="menu.html#michigan-pothole"><img src="images/ashbys-michigan-pothole-ice-cream.png" alt="Michigan Pothole"/></a>
+        <div class="flavor-text">
+          <h3>Michigan Pothole</h3>
+          <p>
+            A chocolate loverâ€™s dream with chunks of brownie and fudge. Our
+            flavour of the month is rich, indulgent and perfect for autumn.
+          </p>
+          <a class="btn primary" href="location.html#visit-card">Try It Now</a>
+        
+<a href="menu.html#michigan-pothole" class="btn" href="menu.html#michigan-pothole">View on Menu</a>
+</div>
+      </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section class="social-section">
+      <h2>Discover Us on Social Media!</h2>
+      <p>Follow our adventures and see what influencers have to say about our cosmic creations.</p>
+
+      <div class="social-cards social-cards-three">
+        <!-- Influencer post -->
+        <div class="social-card influencer-card">
+          <div class="embed-wrapper">
+            <iframe
+              src="https://www.instagram.com/p/DNEhRcWp_be/embed"
+              title="Influencer review of AstroBros"
+              frameborder="0"
+              scrolling="no"
+              allowtransparency="true">
+            </iframe>
+          </div>
+          <h3>Influencer Video</h3>
+          <p>Check out what influencers have to say about us.</p>
+        </div>
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@astrobroscafe" class="social-card tiktok-card" target="_blank" rel="noopener">
+          <img src="images/tiktok_logo.svg" alt="TikTok logo" class="social-logo"/>
+          <h3>TikTok</h3>
+          <p>@astrobroscafe</p>
+          <span class="btn primary">Follow</span>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/astrobroscafe/?hl=en" class="social-card instagram-card" target="_blank" rel="noopener">
+          <img src="images/instagram_logo.png" alt="Instagram logo" class="social-logo"/>
+          <h3>Instagram</h3>
+          <p>@astrobroscafe</p>
+          <span class="btn primary">Follow</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025&nbsp;AstroBros Ice Cream &amp; Coffee</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
