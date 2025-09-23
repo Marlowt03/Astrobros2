@@ -1783,3 +1783,32 @@ header{position:sticky;top:0;z-index:10000}
   color:#fff !important;
   border-color: transparent !important;
 }
+/* QUICKNAV: pills on desktop and phone */
+.menu-quicknav{
+  display:flex; gap:.6rem; justify-content:flex-start;
+  align-items:center; padding:.6rem 1rem;
+  background:var(--color-background,#fff4ed);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.menu-quicknav a{
+  display:inline-block;
+  padding:.55rem 1rem;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.12);
+  box-shadow:0 3px 8px rgba(0,0,0,.12);
+  font-weight:700; font-size:.95rem; line-height:1;
+  color:#2b221c; text-decoration:none;
+}
+.menu-quicknav a:hover{
+  background:var(--color-primary,#ff9466); color:#fff; border-color:transparent;
+}
+/* on narrow screens keep in one row with horizontal scroll */
+@media (max-width:768px){
+  .menu-quicknav{ overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling:touch }
+  .menu-quicknav a{ flex:0 0 auto }
+}
+/* active state (used by JS) */
+.menu-quicknav a.active{
+  background:var(--color-primary,#ff9466); color:#fff; border-color:transparent;
+}
