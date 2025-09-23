@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
- <style id="last-overrides-visit">
+<style id="fix-visit-mobile">
+/* force small page-hero text on phones */
 @media (max-width: 900px){
-  /* shrink visit hero */
-  html body .page-hero h1{font-size:1.05rem !important;line-height:1.15 !important}
-  html body .page-hero p {font-size:.95rem !important;line-height:1.35 !important}
-  html body .page-hero   {padding:3.2rem 1rem 1.6rem !important}
+  .page-hero{padding:3rem 1rem 1.4rem !important}
+  .page-hero h1{font-size:1.05rem !important; line-height:1.2 !important}
+  .page-hero p {font-size:.95rem !important; line-height:1.35 !important; max-width:34rem !important}
 }
 </style>
 </head>
