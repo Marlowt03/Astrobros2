@@ -3,46 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Menu &ndash; AstroBros</title>
+  <title>Menu – AstroBros</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-    <script src="script.js"></script>
 <body id="top">
   <header>
-<nav class="navbar">
-  <a href="index.html" class="logo brand-name">ASTROBROS</a>
-
-  <ul id="site-menu" class="nav-links" role="menu" aria-hidden="true">
-    <li><a href="index.html" role="menuitem">Home</a></li>
-    <li><a href="menu.html" role="menuitem">Menu</a></li>
-    <li><a href="location.html" role="menuitem">Visit</a></li>
-    <li><a href="about.html" role="menuitem">About</a></li>
-  </ul>
-
-  <button class="nav-toggle"
-          aria-label="Open menu"
-          aria-controls="site-menu"
-          aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+    <nav class="navbar">
+      <a href="index.html" class="logo brand-name">ASTROBROS</a>
+      <ul class="nav-links" id="nav-menu" aria-hidden="true">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="menu.html">Menu</a></li>
+        <li><a href="location.html">Visit</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
   </header>
 
   <main>
     <section class="page-hero" style="background-image: url('images/interior_pano.png'); background-size: cover; background-position: center; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">
       <h1>Our Menu</h1>
       <p>
-        Explore our selection of handcrafted scoops, each bursting with flavor
-        and made with love. From fruity sorbets to decadent chocolates, thereâ€™s
-        a taste for everyone.
+        Explore our selection of handcrafted scoops, each bursting with flavor and made with love. From fruity sorbets to decadent chocolates, there’s a taste for everyone.
       </p>
     </section>
+
+    <!-- Quick navigation for menu sections -->
+    <nav class="menu-quicknav" aria-label="Quick menu navigation">
+      <a href="#flavors">Flavors</a>
+      <a href="#stackers">Stackers</a>
+      <a href="#dubai">Dubai</a>
+      <a href="#taiyaki">Taiyaki</a>
+      <a href="#top">Back to Top</a>
+    </nav>
+
+    <!-- Flavors Section -->
     <section class="menu-section" id="flavors">
       <h2>Ice Cream Flavors</h2>
       <div class="menu-grid">
@@ -69,7 +69,7 @@
         <div class="menu-item" id="michigan-pothole">
           <img src="images/ashbys-michigan-pothole-ice-cream.png" alt="Michigan Pothole" />
           <h3>Michigan Pothole</h3>
-          <p>A chocolate loverâ€™s dream with chunks of brownie and fudge.</p>
+          <p>A chocolate lover’s dream with chunks of brownie and fudge.</p>
         </div>
         <div class="menu-item">
           <img src="images/ashbys-oreo-ice-cream.png" alt="Oreo" />
@@ -89,7 +89,7 @@
         <div class="menu-item">
           <img src="images/ashbys-superman-ice-cream.png" alt="Superman" />
           <h3>Superman</h3>
-          <p>A colorful swirl of fruity flavors, kidsâ€™ favorite!</p>
+          <p>A colorful swirl of fruity flavors – a kids’ favorite!</p>
         </div>
         <div class="menu-item">
           <img src="images/ashbys-vanilla-ice-cream.png" alt="Vanilla" />
@@ -114,7 +114,7 @@
         <div class="menu-item">
           <img src="images/raspberry_sorbet.png" alt="Raspberry Sorbet" />
           <h3>Raspberry Sorbet</h3>
-          <p>Dairyâ€'free sorbet bursting with pure raspberry flavor.</p>
+          <p>Dairy‑free sorbet bursting with pure raspberry flavor.</p>
         </div>
         <div class="menu-item">
           <img src="images/rush_hour.png" alt="Rush Hour" />
@@ -126,51 +126,54 @@
           <h3>Strawberry Cheesecake</h3>
           <p>Creamy cheesecake ice cream with strawberry swirls.</p>
         </div>
-        <div class="menu-item">
-          <img src="images/taro.png" alt="Taro" />
-          <h3>Taro</h3>
-          <p>Subtly sweet taro root ice cream with a purple hue.</p>
-        </div>
       </div>
+    </section>
 
-      <h2 id="stackers" style="margin-top:3rem;">Signature Stackers</h2>
-      <!-- Use a custom grid class so that stackers display three per row on large screens -->
-      <div class="menu-grid stackers-grid">
-        <div class="menu-item">
-          <img src="images/stacker1.png" alt="Biscoff Cookie Butter" />
+    <!-- Signature Stackers Section -->
+    <section class="menu-section" id="stackers">
+      <h2>Signature Stackers</h2>
+      <p>
+        Our stackers are layers of pure bliss: creamy ice cream, ribbons of sauce, crunchy mix‑ins and whipped topping. 
+        Dive into your next favorite indulgence.
+      </p>
+      <div class="stacker-grid">
+        <div class="stacker-item">
+          <img src="images/stacker1.png" alt="Biscoff Cookie Butter Stacker" />
           <h3>Biscoff Cookie Butter</h3>
-          <p>Vanilla ice cream layered with cookie butter swirls and Biscoff crumble.</p>
+          <p>A decadent blend of vanilla ice cream, cookie butter swirls, crumbled Biscoff cookies and whipped cream.</p>
         </div>
-        <div class="menu-item cosmic-crunch">
-          <!-- Use the higher resolution Cosmic Crunch image provided by the user -->
-          <img src="images/stacker2.png" alt="Cosmic Crunch" />
+        <div class="stacker-item">
+          <img src="images/stacker2.png" alt="Cosmic Crunch Stacker" />
           <h3>Cosmic Crunch</h3>
-          <p>A colorful crunch mix folded into vanilla ice cream, topped with whipped cream and sprinkles.</p>
+          <p>Vanilla ice cream mixed with colorful crunch, topped with whipped cream and candy bits.</p>
         </div>
-        <div class="menu-item">
-          <img src="images/stacker3.png" alt="Strawberry Shortcake" />
+        <div class="stacker-item">
+          <img src="images/stacker3.png" alt="Strawberry Shortcake Stacker" />
           <h3>Strawberry Shortcake</h3>
-          <p>Vanilla and strawberry compote layered with graham crumbs and whipped topping.</p>
+          <p>Creamy vanilla layered with strawberry compote, graham crumbs and whipped topping.</p>
         </div>
-        <div class="menu-item">
-          <img src="images/stacker4.png" alt="Mocha Brownie" />
+        <div class="stacker-item">
+          <img src="images/stacker4.png" alt="Mocha Brownie Stacker" />
           <h3>Mocha Brownie</h3>
-          <p>Espresso ice cream with fudgy brownie bits and chocolate drizzle.</p>
+          <p>Espresso‑infused ice cream with fudgy brownie pieces and chocolate drizzle.</p>
         </div>
-        <div class="menu-item">
-          <img src="images/stacker5.png" alt="Cookies &amp; Cream" />
+        <div class="stacker-item">
+          <img src="images/stacker5.png" alt="Cookies &amp; Cream Stacker" />
           <h3>Cookies &amp; Cream</h3>
-          <p>A mix of vanilla and chocolate ice cream with cookie crumbs and graham crust.</p>
+          <p>Layers of vanilla and chocolate ice cream with cookie crumbs and graham crust.</p>
         </div>
-        <div class="menu-item">
-          <img src="images/stacker6.png" alt="Oreo Blast" />
+        <div class="stacker-item">
+          <img src="images/stacker6.png" alt="Oreo Blast Stacker" />
           <h3>Oreo Blast</h3>
-          <p>Chocolate ice cream loaded with Oreo pieces, finished with whipped cream and more cookie crumble.</p>
+          <p>Chocolate ice cream loaded with chunks of Oreo and topped with whipped cream and crushed cookies.</p>
         </div>
       </div>
+    </section>
 
-      <h2 id="dubai" style="margin-top:3rem;">Dubai Chocolate Menu</h2>
-      <!-- Display our Dubai menu items in individual cards.  Two feature treats plus a card letting guests know there are more options. -->
+    <!-- Dubai Chocolate Section -->
+    <section class="menu-section" id="dubai">
+      <h2>Dubai Chocolate Menu</h2>
+      <!-- Two featured treats plus a card indicating more options -->
       <div class="menu-grid dubai-grid">
         <div class="menu-item">
           <img src="images/dubai_strawberry.png" alt="Strawberry Pistachio" />
@@ -180,7 +183,7 @@
         <div class="menu-item">
           <img src="images/dubai_stacker.png" alt="Matcha Pistachio" />
           <h3>Matcha Pistachio</h3>
-          <p>A decadent matchaâ€'infused chocolate sundae topped with pistachios and whipped cream.</p>
+          <p>A decadent matcha‑infused chocolate sundae topped with pistachios and whipped cream.</p>
         </div>
         <div class="menu-item more-dubai">
           <div class="more-dubai-content">
@@ -189,9 +192,11 @@
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Taiyaki treats menu section -->
-      <h2 id="taiyaki" style="margin-top:3rem;">Taiyaki Treats</h2>
+    <!-- Taiyaki Treats Section -->
+    <section class="menu-section" id="taiyaki">
+      <h2>Taiyaki Treats</h2>
       <div class="menu-grid taiyaki-grid">
         <div class="menu-item">
           <img src="images/IMG_9309.PNG" alt="Taiyaki Stacker" />
@@ -215,6 +220,5 @@
   </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>
