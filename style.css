@@ -1867,3 +1867,81 @@ body.nav-open .navbar {
 .nav-toggle.open span {
   background-color: #fff !important;  /* makes the hamburger/X white for contrast */
 }
+/* ========== HERO FIXES ========== */
+
+/* Home (index): make video section smaller but still full-bleed, no bars */
+body.index .hero {
+  height: 70vh !important;        /* was 100vh; smaller = looks more zoomed out */
+  min-height: 420px !important;
+}
+@media (max-width: 900px){
+  body.index .hero {
+    height: 55vh !important;
+    min-height: 320px !important;
+  }
+}
+/* keep video filling the hero so no black bars */
+body.index .video-wrapper video,
+body.index .hero-video {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* Visit (location): smaller header and show full image without tiling */
+body.location .page-hero {
+  min-height: 32vh !important;    /* reduce visual size */
+  padding: 2rem 1rem 1.25rem !important;
+  background-size: contain !important;   /* full image visible */
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+@media (max-width: 900px){
+  body.location .page-hero { min-height: 28vh !important; }
+}
+
+/* Menu & About: make headers larger (override tiny mobile rules) */
+body.menu .page-hero h1,
+body.about .page-hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3rem) !important;
+  line-height: 1.15 !important;
+}
+body.menu .page-hero p,
+body.about .page-hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem) !important;
+  line-height: 1.35 !important;
+}
+@media (max-width: 900px){
+  body.menu .page-hero h1,
+  body.about .page-hero h1 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
+  }
+  body.menu .page-hero p,
+  body.about .page-hero p {
+    font-size: clamp(0.95rem, 3.5vw, 1.1rem) !important;
+  }
+}
+
+/* ========== NAV MOBILE: restore blurred full-screen bubbles ========== */
+@media (max-width: 768px){
+  .navbar { clip-path: none !important; }
+  .nav-toggle { display:flex !important; z-index:10000 !important; }
+
+  .nav-links{
+    position:fixed !important; inset:0 !important;
+    display:none !important; flex-direction:column !important;
+    justify-content:center !important; align-items:center !important; gap:1rem !important;
+    background:rgba(0,0,0,.7) !important; backdrop-filter:blur(6px) !important;
+    z-index:9999 !important; padding:2rem !important; margin:0 !important;
+  }
+  .nav-links.open{ display:flex !important; }
+
+  .nav-links li{ width:100% !important; text-align:center !important; border:0 !important; }
+  .nav-links li a{
+    display:inline-block !important; background:#fff !important; color:#222 !important;
+    padding:.9rem 1.4rem !important; border-radius:999px !important; font-size:1.2rem !important; font-weight:600 !important;
+  }
+
+  body.nav-open{ overflow:hidden !important; }
+}
+body.nav-open .navbar{ z-index:0 !important; }
+.nav-toggle.open span{ background-color:#fff !important; }
