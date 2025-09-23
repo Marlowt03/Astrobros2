@@ -1856,3 +1856,8 @@ header{position:sticky;top:0;z-index:10000}
     line-height: 1.25 !important;
   }
 }
+@media (max-width: 900px){
+  .hero-video {
+    object-fit: contain !important;   /* show full frame, no crop */
+    background-color: #000;           /* letterbox bars if needed */
+  }
