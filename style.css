@@ -68,18 +68,6 @@ header {
   clip-path: polygon(0 0, 100% 0, 100% 80%, 95% 90%, 85% 85%, 75% 95%, 65% 85%, 55% 95%, 45% 85%, 35% 95%, 20% 90%, 0 80%);
 }
 
-.navbar::before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: -40px;
-  right: -40px;
-  bottom: -20px;
-  content: none;
-  z-index: -1;
-  opacity: 0.65;
-}
-
 .logo img {
   height: 48px;
   width: auto;
@@ -223,8 +211,6 @@ header {
   background-color: var(--color-secondary);
 }
 
-/* ... (remaining styles unchanged) ... */
-
 .video-wrapper {
   position: absolute;
   top: 0;
@@ -296,34 +282,29 @@ header {
     height: 50vh;
     min-height: 300px;
   }
-  
   .hero-content {
     padding: 0 1rem;
   }
-  
   .hero-content h1 {
     font-size: 1.5rem;
     line-height: 1.2;
   }
-  
   .hero-content p {
     font-size: 0.9rem;
     line-height: 1.4;
   }
-  
   .hero-buttons {
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
   }
-  
   .hero-buttons .btn {
     width: 200px;
     text-align: center;
   }
 }
 
-/* BUTTON STYLES - ENHANCED */
+/* BUTTON STYLES */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -529,7 +510,7 @@ header {
   }
 }
 
-/* FEATURE SECTION FOR HOME PAGE - BETTER MOBILE LAYOUT */
+/* FEATURE SECTION FOR HOME PAGE */
 .feature-section {
   padding: 2rem 1rem;
   background-color: var(--color-background);
@@ -554,7 +535,6 @@ header {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
   .feature-section {
     padding: 1.5rem 0.5rem;
   }
@@ -897,18 +877,15 @@ header {
     align-items: center;
     padding: 0 1rem;
   }
-  
   .social-card {
     margin: 0 auto;
     width: 100%;
     max-width: 320px;
   }
-  
   .social-card.influencer-card {
     max-width: 350px;
     width: 100%;
   }
-  
   .social-card.tiktok-card,
   .social-card.instagram-card {
     width: 100%;
@@ -921,11 +898,9 @@ header {
   .social-section {
     padding: 3rem 1rem;
   }
-  
   .social-section h2 {
     font-size: 2rem;
   }
-  
   .social-section p {
     font-size: 1rem;
     padding: 0 1rem;
@@ -966,12 +941,10 @@ header {
     width: 100%;
     max-width: 320px;
   }
-  
   .social-card.influencer-card .embed-wrapper {
     height: 380px;
     margin: 0 auto 1rem;
   }
-  
   .social-card.influencer-card .embed-wrapper iframe {
     top: -60px;
     height: 600px;
@@ -1129,11 +1102,9 @@ footer {
     min-height: 20vh;
     padding: 2rem 1rem 1rem;
   }
-  
   .page-hero h1 {
     font-size: 1.4rem;
   }
-  
   .page-hero p {
     font-size: 0.85rem;
   }
@@ -1421,7 +1392,6 @@ footer {
     flex-direction: column;
     align-items: center;
   }
-  
   .location-card,
   .location-image {
     flex: 1 1 100%;
@@ -1597,7 +1567,10 @@ img[alt="Signature Stackers"] {
 }
 
 /* ANCHOR SCROLL OFFSETS */
-#stackers, #dubai, #taiyaki, #flavors {
+#flavors,
+#stackers,
+#dubai,
+#taiyaki {
   scroll-margin-top: 120px;
 }
 
@@ -1612,303 +1585,235 @@ img[alt="Signature Stackers"] {
 #top {
   scroll-margin-top: 0;
 }
+
+/* NAV ABOVE HERO + NO CLIP (Mobile Navigation fix) */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+.navbar {
+  position: relative;
+  z-index: 10001;
+}
 @media (max-width: 768px) {
-  .nav-toggle { display: flex !important; z-index: 10000 !important; }
-
-  .nav-links{
-    position: fixed !important;
-    inset: 0 !important;
-    display: none !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 1rem !important;
-    background: rgba(0,0,0,0.7) !important;
-    backdrop-filter: blur(4px);
-    z-index: 9999 !important;
-    padding: 2rem !important;
-    margin: 0 !important;
+  .navbar {
+    clip-path: none;
   }
-  .nav-links.open{ display: flex !important; }
-
-  .nav-links li { width: 100% !important; text-align: center !important; border: 0 !important; }
-  .nav-links li a{
-    display: inline-block !important;
-    background: #fff !important;
-    color: #222 !important;
-    padding: 0.9rem 1.4rem !important;
-    border-radius: 999px !important;
-    font-size: 1.2rem !important;
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10002;
+    background: var(--color-background);
+    margin: 0;
+    padding: 0.6rem 0;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.25s ease, opacity 0.25s ease;
   }
-
-  body.nav-open{ overflow: hidden !important; }
-}
-/* =========================
-   NAV ABOVE HERO + NO CLIP
-   ========================= */
-header{position:sticky;top:0;z-index:10000}
-.navbar{position:relative;z-index:10001}
-@media (max-width:768px){
-  .navbar{clip-path:none}                 /* stops dropdown clipping */
-  .nav-links{
-    position:absolute;top:100%;left:0;right:0;z-index:10002;
-    background:var(--color-background);
-    margin:0;padding:.6rem 0;box-shadow:0 10px 24px rgba(0,0,0,.12);
-    display:flex;flex-direction:column;
-    max-height:0;opacity:0;overflow:hidden;pointer-events:none;
-    transition:max-height .25s ease,opacity .25s ease;
+  .nav-links.open {
+    max-height: 24rem;
+    opacity: 1;
+    pointer-events: auto;
   }
-  .nav-links.open{max-height:24rem;opacity:1;pointer-events:auto}
-  .nav-links li a{display:block;padding:1rem 1.25rem;font-size:1.05rem;border:0}
-}
-
-/* ======================================
-   HOMEPAGE FEATURE TILES: bigger desktop
-   ====================================== */
-/* keep 3-up on laptops/tablets */
-@media (max-width:900px){
-  .features{grid-template-columns:repeat(2,1fr)}
-}
-/* stack on phones */
-@media (max-width:720px){
-  .features{grid-template-columns:1fr}
-  .feature-item{grid-template-columns:1fr;gap:.8rem;padding:1rem}
-}
-/* make each card larger only on desktop */
-@media (min-width:1024px){
-  .feature-item{grid-template-columns:40% 1fr;padding:1.5rem}
-  .feature-item img{min-height:150px;max-height:220px}
-  .feature-text h2{font-size:1.6rem}
-  .feature-text p{font-size:.95rem}
-  .feature-text .btn{font-size:.85rem;padding:.6rem 1.2rem}
-}
-
-/* =========================================
-   MENU: sticky quicknav + responsive grids
-   ========================================= */
-/* sticky sub-nav under the main header */
-.menu-quicknav{
-  position:sticky;top:4rem;z-index:900;
-  background:var(--color-background);
-  padding:.6rem .5rem;text-align:center;
-  border-bottom:1px solid rgba(0,0,0,.08);
-}
-.menu-quicknav a{display:inline-block;margin:0 1rem;font-weight:700}
-.menu-quicknav a:hover{color:var(--color-primary);border-bottom:2px solid var(--color-primary)}
-/* anchor offset so headings aren’t hidden */
-#flavors,#stackers,#dubai,#taiyaki{scroll-margin-top:4.2rem}
-
-/* base grid already handles desktop; make phones 2–3 up */
-@media (max-width:480px){
-  .menu-grid,
-  .menu-grid.stackers-grid,
-  .menu-grid.dubai-grid,
-  .menu-grid.taiyaki-grid{
-    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-    gap:.6rem;
+  .nav-links li a {
+    display: block;
+    padding: 1rem 1.25rem;
+    font-size: 1.05rem;
+    border: 0;
   }
-  .menu-item img{height:170px}
-  .menu-item h3{font-size:1rem}
-  .menu-item p{font-size:.82rem}
 }
-/* --- Fix quicknav cut-off --- */
 
-/* push quicknav slightly lower so it clears the main header */
+/* HOMEPAGE FEATURE TILES: responsive adjustments */
+@media (max-width: 900px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+  .feature-item {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .feature-item {
+    grid-template-columns: 40% 1fr;
+    padding: 1.5rem;
+  }
+  .feature-item img {
+    min-height: 150px;
+    max-height: 220px;
+  }
+  .feature-text h2 {
+    font-size: 1.6rem;
+  }
+  .feature-text p {
+    font-size: 0.95rem;
+  }
+  .feature-text .btn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* MENU QUICKNAV: sticky sub-nav with pill buttons */
 .menu-quicknav {
-  top: 5rem; /* was 4rem, increase to match your header height */
+  position: sticky;
+  top: 5rem;
+  z-index: 900;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  background: var(--color-background, #fff4ed);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* increase scroll offset so section titles aren’t hidden */
+.menu-quicknav a {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: #2b221c;
+  text-decoration: none;
+}
+
+.menu-quicknav a:hover {
+  background: var(--color-primary, #ff9466);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .menu-quicknav {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .menu-quicknav::-webkit-scrollbar {
+    height: 0;
+  }
+  .menu-quicknav a {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+}
+
 #flavors,
 #stackers,
 #dubai,
 #taiyaki {
   scroll-margin-top: 5.2rem; /* match the new top value */
 }
-/* floating back-to-top */
-.back-to-top{
-  position:fixed; right:1rem; bottom:1rem;
-  width:48px; height:48px; border-radius:999px;
-  display:flex; align-items:center; justify-content:center;
-  background:#222; color:#fff; box-shadow:0 8px 20px rgba(0,0,0,.25);
-  opacity:0; transform:translateY(8px); pointer-events:none;
-  transition:opacity .2s ease, transform .2s ease;
-  z-index:10050;
-}
-.back-to-top svg{ width:22px; height:22px }
-.back-to-top.show{ opacity:1; transform:translateY(0); pointer-events:auto }
-@media (max-width:480px){
-  .back-to-top{ width:44px; height:44px; right:.8rem; bottom:.8rem }
-  .back-to-top svg{ width:20px; height:20px }
-}
-/* PHONE: quicknav = single-row pill buttons, hard reset */
-@media (max-width: 768px){
-  nav.menu-quicknav{
-    display:flex !important;
-    flex-wrap:nowrap !important;
-    gap:.5rem !important;
-    overflow-x:auto !important;
-    white-space:nowrap !important;
-    padding:.6rem 1rem !important;
-    text-align:left !important;
-    align-items:center !important;
-    -webkit-overflow-scrolling:touch;
-    scroll-snap-type:x proximity;
-  }
-  nav.menu-quicknav a{
-    all: unset;                          /* wipe inherited heading styles */
-    box-sizing:border-box;
-    display:inline-flex;
-    align-items:center;
-    flex:0 0 auto;                       /* no wrapping */
-    padding:.55rem .9rem;
-    border-radius:999px;
-    background:#fff;
-    border:1px solid rgba(0,0,0,.12);
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-    font:700 .95rem/1 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-    color:#2b221c;
-    cursor:pointer;
-    scroll-snap-align:start;
-  }
-  nav.menu-quicknav a:hover{
-    background:var(--color-primary,#ff9466);
-    color:#fff;
-    border-color:transparent;
-  }
-  nav.menu-quicknav::-webkit-scrollbar{height:0}
-}
-.menu-quicknav a.active{
-  background: var(--color-primary, #ff9466) !important;
-  color:#fff !important;
-  border-color: transparent !important;
-}
-/* QUICKNAV: pills on desktop and phone */
-.menu-quicknav{
-  display:flex; gap:.6rem; justify-content:flex-start;
-  align-items:center; padding:.6rem 1rem;
-  background:var(--color-background,#fff4ed);
-  border-bottom:1px solid rgba(0,0,0,.08);
-}
-.menu-quicknav a{
-  display:inline-block;
-  padding:.55rem 1rem;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid rgba(0,0,0,.12);
-  box-shadow:0 3px 8px rgba(0,0,0,.12);
-  font-weight:700; font-size:.95rem; line-height:1;
-  color:#2b221c; text-decoration:none;
-}
-.menu-quicknav a:hover{
-  background:var(--color-primary,#ff9466); color:#fff; border-color:transparent;
-}
-/* on narrow screens keep in one row with horizontal scroll */
-@media (max-width:768px){
-  .menu-quicknav{ overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling:touch }
-  .menu-quicknav a{ flex:0 0 auto }
-}
-/* active state (used by JS) */
-.menu-quicknav a.active{
-  background:var(--color-primary,#ff9466); color:#fff; border-color:transparent;
-}
-/* ===== FORCE MOBILE HEADER SIZING (wins over everything) ===== */
-@media (max-width: 900px){
 
-  /* HOME: huge shrink on hero */
-  html body.index .hero h1{
+/* floating back-to-top */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10050;
+}
+.back-to-top svg {
+  width: 22px;
+  height: 22px;
+}
+.back-to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+@media (max-width: 480px) {
+  .back-to-top {
+    width: 44px;
+    height: 44px;
+    right: 0.8rem;
+    bottom: 0.8rem;
+  }
+  .back-to-top svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* FORCE MOBILE HEADER SIZING (wins over everything) */
+@media (max-width: 900px) {
+  /* HOME: shrink hero text on phones */
+  .index .hero h1 {
     font-size: 1.05rem !important;
     line-height: 1.15 !important;
     letter-spacing: 0 !important;
   }
-  html body.index .hero p{
-    font-size: .90rem !important;
+  .index .hero p {
+    font-size: 0.90rem !important;
     line-height: 1.30 !important;
   }
-  html body.index .hero-content{
+  .index .hero-content {
     padding: 1.75rem 1rem !important;
   }
-
-  /* VISIT: huge shrink on hero image header */
-  html body.location .page-hero h1{
+  /* VISIT: shrink hero header on phones */
+  .location .page-hero h1 {
     font-size: 1.05rem !important;
     line-height: 1.15 !important;
   }
-  html body.location .page-hero p{
-    font-size: .95rem !important;
+  .location .page-hero p {
+    font-size: 0.95rem !important;
     line-height: 1.35 !important;
   }
-  html body.location .page-hero{
+  .location .page-hero {
     padding: 3.5rem 1rem 1.75rem !important;
   }
-
-  /* MENU + ABOUT: make headers bigger on phones */
-  html body .page-hero h1{
+  /* MENU & ABOUT: slightly larger headers on phones */
+  .page-hero h1 {
     font-size: 1.95rem !important;
     line-height: 1.20 !important;
   }
-  html body .menu-section h2{
+  .menu-section h2 {
     font-size: 1.65rem !important;
     line-height: 1.25 !important;
   }
-  html body .about-content h2{
+  .about-content h2 {
     font-size: 1.55rem !important;
     line-height: 1.25 !important;
   }
 }
+
 /* Home hero video on phones */
-@media (max-width: 900px){
-  .hero-video {
-    object-fit: contain !important; /* show full video */
-    background-color: #000 !important; /* fill letterbox space */
-    max-height: 65vh !important; /* prevent giant height */
-  }
-}
-/* Visit hero smaller headers on phones */
-@media (max-width: 900px){
-  body.location .page-hero h1 {
-    font-size: 1.1rem !important;
-    line-height: 1.2 !important;
-  }
-  body.location .page-hero p {
-    font-size: 0.9rem !important;
-    line-height: 1.3 !important;
-    max-width: 32rem !important;
-  }
-  body.location .page-hero {
-    padding: 2.5rem 1rem 1.5rem !important;
-  }
-}
-/* 1. Index Page – Full-view hero video with no cropping */
-body.index .hero {
-  height: 80vh !important;           /* Limit hero height on desktop (was 100vh) :contentReference[oaicite:10]{index=10} */
-  min-height: 500px !important;      /* Keep existing min-height for smaller windows :contentReference[oaicite:11]{index=11} */
-}
-body.index .hero-video {
-  object-fit: contain !important;    /* Show entire video frame (no cropping) :contentReference[oaicite:12]{index=12} */
-  object-position: center center !important;  /* Center the video within its container */
-  background-color: #000 !important; /* Fill any letterbox space with black :contentReference[oaicite:13]{index=13} */
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* 2. Location Page – Contain and center the header image */
-body.location .page-hero {
-  background-size: contain !important;   /* Show entire background image (no cropping) */
-  background-position: center center !important; /* Center image within header */
-  /* (The existing secondary background-color will show behind any gaps) */
-}
-
-/* 3. About & Menu Pages – Ensure hero images stay covered (zoomed in) */
-body.about .page-hero,
-body.menu .page-hero {
-  background-size: cover !important;     /* Fill the space, allowing edges to be cropped */
-  background-position: center center !important; /* Center the image for balanced cropping */
-}
-
-/* 4. Responsive adjustments for smaller screens */
 @media (max-width: 900px) {
-  /* Home page hero – use a smaller height on mobile to avoid huge video area */
-  body.index .hero {
-    height: 65vh !important;    /* More compact hero on phones/tablets (was ~100vh) */
+  .hero-video {
+    object-fit: contain !important;
+    background-color: #000 !important;
+    max-height: 65vh !important;
   }
+}
