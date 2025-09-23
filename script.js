@@ -150,3 +150,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+// ===== FORCE MOBILE HEADER SIZES INLINE (wins over all CSS) =====
+(function () {
+  if (window.innerWidth > 900) return; // phones/tablets only
+
+  // HOME (index): huge shrink on hero
+  const homeH1 = document.querySelector('.hero .hero-content h1');
+  const homeP  = document.querySelector('.hero .hero-content p');
+  if (homeH1) { homeH1.style.cssText += 'font-size:1.05rem;line-height:1.15;'; }
+  if (homeP)  { homeP .style.cssText += 'font-size:.90rem;line-height:1.30;'; }
+
+  // VISIT (location): huge shrink on page hero
+  const visitH1 = document.querySelector('body .page-hero h1');
+  const visitP  = document.querySelector('body .page-hero p');
+  // only run this block on the visit page (has a map or a known marker in the DOM)
+  if (visitH1 && document.body.textContent.toLowerCase().includes('visit')) {
+    visitH1.style.cssText += 'font-size:1.05rem;line-height:1.15;';
+    if (visitP) visitP.style.cssText += 'font-size:.95rem;line-height:1.35;';
+    const visitHero = document.querySelector('body .page-hero');
+    if (visitHero) visitHero.style.cssText += 'padding:3.2rem 1rem 1.6rem;';
+  }
+
+  // MENU (menu.html) and ABOUT (about.html): make headers bigger
+  const menuAboutH1 = document.querySelector('.page-hero h1');
+  if (menuAboutH1 && !homeH1) { // not the home hero
+    menuAboutH1.style.cssText += 'font-size:1.95rem;line-height:1.20;';
+  }
+  const menuH2s  = document.querySelectorAll('.menu-section h2');
+  menuH2s.forEach(h2 => { h2.style.cssText += 'font-size:1.65rem;line-height:1.25;'; });
+  const aboutH2s = document.querySelectorAll('.about-content h2');
+  aboutH2s.forEach(h2 => { h2.style.cssText += 'font-size:1.55rem;line-height:1.25;'; });
+
+  // Re-apply after orientation change
+  window.addEventListener('orientationchange', () => setTimeout(() => { 
+    // rerun same logic on rotation
+    (function(){ 
+      if (window.innerWidth > 900) return;
+      if (homeH1) { homeH1.style.cssText += 'font-size:1.05rem;line-height:1.15;'; }
+      if (homeP)  { homeP .style.cssText += 'font-size:.90rem;line-height:1.30;'; }
+      if (visitH1 && document.body.textContent.toLowerCase().includes('visit')) {
+        visitH1.style.cssText += 'font-size:1.05rem;line-height:1.15;';
+        if (visitP) visitP.style.cssText += 'font-size:.95rem;line-height:1.35;';
+      }
+      if (menuAboutH1 && !homeH1) { menuAboutH1.style.cssText += 'font-size:1.95rem;line-height:1.20;'; }
+      menuH2s.forEach(h2 => { h2.style.cssText += 'font-size:1.65rem;line-height:1.25;'; });
+      aboutH2s.forEach(h2 => { h2.style.cssText += 'font-size:1.55rem;line-height:1.25;'; });
+    })();
+  }, 250));
+})();
