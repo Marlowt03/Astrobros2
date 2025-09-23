@@ -25,12 +25,18 @@
       cursor: pointer;
     }
   </style>
-  <style id="last-overrides-home">
+ <style id="fix-home-mobile">
+/* force small hero text on phones, and keep video framed */
 @media (max-width: 900px){
-  /* shrink home hero */
-  html body .hero .hero-content h1{font-size:1.05rem !important;line-height:1.15 !important}
-  html body .hero .hero-content p {font-size:.90rem !important;line-height:1.30 !important}
-  html body .hero .hero-content   {padding:1.6rem 1rem !important}
+  .hero{min-height:65vh !important}
+  .hero .hero-content{padding:1.2rem 1rem !important; max-width:34rem !important}
+  .hero .hero-content h1{font-size:1.05rem !important; line-height:1.2 !important; letter-spacing:0 !important}
+  .hero .hero-content p {font-size:.90rem !important; line-height:1.35 !important}
+
+  /* video behavior on iOS */
+  .video-wrapper{position:absolute !important; inset:0 !important; overflow:hidden !important}
+  .hero-video{position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; object-fit:cover !important; transform:none !important; filter:none !important}
+  .overlay{background:rgba(0,0,0,.35) !important}
 }
 </style>
   <!-- Removed inline mobile nav script; navigation is handled in script.js -->
