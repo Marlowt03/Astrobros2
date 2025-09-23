@@ -102,13 +102,51 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => { recalc(); onScroll(); }, 300);
   })();
 
-  // ===== Hero video safe-play (unchanged) =====
+  // ===== Mobile header sizing overrides (runtime, wins over CSS) =====
+  (function () {
+    if (window.innerWidth > 900) return; // phones/tablets only
+
+    const css = `
+      /* Home: huge shrink on hero */
+      body.index .hero h1{font-size:1.05rem !important;line-height:1.15 !important}
+      body.index .hero p{font-size:.90rem !important;line-height:1.30 !important}
+      body.index .hero-content{padding:1.6rem 1rem !important}
+
+      /* Visit: huge shrink on hero */
+      body.location .page-hero h1{font-size:1.05rem !important;line-height:1.15 !important}
+      body.location .page-hero p{font-size:.95rem !important;line-height:1.35 !important}
+      body.location .page-hero{padding:3.2rem 1rem 1.6rem !important}
+
+      /* Menu + About: bigger on phones */
+      body:not(.index):not(.location) .page-hero h1{font-size:1.95rem !important;line-height:1.20 !important}
+      body:not(.index):not(.location) .menu-section h2{font-size:1.65rem !important;line-height:1.25 !important}
+      body:not(.index):not(.location) .about-content h2{font-size:1.55rem !important;line-height:1.25 !important}
+    `;
+
+    let tag = document.getElementById('mobile-header-overrides');
+    if (!tag) {
+      tag = document.createElement('style');
+      tag.id = 'mobile-header-overrides';
+      document.head.appendChild(tag);
+    }
+    tag.textContent = css;
+
+    // Re-apply after orientation changes
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => { tag.textContent = css; }, 250);
+    });
+  })();
+
+  // ===== Hero video safe-play =====
   const heroVideo = document.getElementById('heroVideo');
   if (heroVideo) {
     const p = heroVideo.play?.();
     if (p && typeof p.catch === 'function') {
       const tryPlay = () => { heroVideo.play?.().catch(()=>{}); };
-      p.catch(()=>{ document.addEventListener('touchstart', tryPlay, { once:true, passive:true }); document.addEventListener('click', tryPlay, { once:true }); });
+      p.catch(()=>{
+        document.addEventListener('touchstart', tryPlay, { once:true, passive:true });
+        document.addEventListener('click', tryPlay, { once:true });
+      });
     }
   }
 });
