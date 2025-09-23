@@ -1914,3 +1914,8 @@ body.menu .page-hero {
   }
   /* (The mobile font sizes and paddings for hero text remain as defined in existing CSS) */
 }
+/* Visit Page – Hero background image displays only once (no repeat) */
+body.location .page-hero {
+  background-repeat: no-repeat;
+  /* background-size: cover and background-position: top center are already inlined on the element */
+}
