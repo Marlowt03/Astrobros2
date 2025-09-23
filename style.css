@@ -1609,3 +1609,34 @@ img[alt="Signature Stackers"] {
 #top {
   scroll-margin-top: 0;
 }
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; z-index: 1002; }
+
+  .nav-links {
+    position: fixed !important;
+    inset: 0 !important;
+    display: none !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    background: rgba(0,0,0,0.6) !important;
+    backdrop-filter: blur(4px);
+    z-index: 1001 !important;
+    padding: 2rem !important;
+    margin: 0 !important;
+  }
+  .nav-links.open { display: flex !important; }
+
+  .nav-links li { width: 100%; text-align: center; border: 0; }
+  .nav-links li a {
+    display: inline-block;
+    background: #fff;
+    color: #222;
+    padding: 0.9rem 1.4rem;
+    border-radius: 999px;
+    font-size: 1.2rem;
+  }
+
+  body.nav-open { overflow: hidden; }
+}
