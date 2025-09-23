@@ -1725,3 +1725,19 @@ header{position:sticky;top:0;z-index:10000}
 #taiyaki {
   scroll-margin-top: 5.2rem; /* match the new top value */
 }
+/* floating back-to-top */
+.back-to-top{
+  position:fixed; right:1rem; bottom:1rem;
+  width:48px; height:48px; border-radius:999px;
+  display:flex; align-items:center; justify-content:center;
+  background:#222; color:#fff; box-shadow:0 8px 20px rgba(0,0,0,.25);
+  opacity:0; transform:translateY(8px); pointer-events:none;
+  transition:opacity .2s ease, transform .2s ease;
+  z-index:10050;
+}
+.back-to-top svg{ width:22px; height:22px }
+.back-to-top.show{ opacity:1; transform:translateY(0); pointer-events:auto }
+@media (max-width:480px){
+  .back-to-top{ width:44px; height:44px; right:.8rem; bottom:.8rem }
+  .back-to-top svg{ width:20px; height:20px }
+}
