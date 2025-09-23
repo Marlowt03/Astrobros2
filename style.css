@@ -1778,3 +1778,8 @@ header{position:sticky;top:0;z-index:10000}
   }
   nav.menu-quicknav::-webkit-scrollbar{height:0}
 }
+.menu-quicknav a.active{
+  background: var(--color-primary, #ff9466) !important;
+  color:#fff !important;
+  border-color: transparent !important;
+}
