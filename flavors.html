@@ -3,46 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flavors &ndash; AstroBros</title>
+  <title>Flavors – AstroBros</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-    <script src="script.js"></script>
 <body>
   <header>
-<nav class="navbar">
-  <a href="index.html" class="logo brand-name">ASTROBROS</a>
-
-  <ul id="site-menu" class="nav-links" role="menu" aria-hidden="true">
-    <li><a href="index.html" role="menuitem">Home</a></li>
-    <li><a href="menu.html" role="menuitem">Menu</a></li>
-    <li><a href="location.html" role="menuitem">Visit</a></li>
-    <li><a href="about.html" role="menuitem">About</a></li>
-  </ul>
-
-  <button class="nav-toggle"
-          aria-label="Open menu"
-          aria-controls="site-menu"
-          aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+    <nav class="navbar">
+      <a href="index.html" class="logo brand-name">ASTROBROS</a>
+      <ul class="nav-links" id="nav-menu" aria-hidden="true">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="menu.html">Menu</a></li>
+        <li><a href="location.html">Visit</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
   </header>
 
   <main>
     <section class="page-hero">
       <h1>Our Flavors</h1>
       <p>
-        Take a journey through our classic and seasonal flavors. Each scoop
-        delivers a distinct experience, from indulgent chocolate to tangy
-        fruit sorbets.
+        Take a journey through our classic and seasonal flavors. Each scoop delivers a distinct experience, from indulgent chocolate to tangy fruit sorbets.
       </p>
     </section>
+
     <section class="menu-section">
       <div class="menu-grid">
         <div class="menu-item">
