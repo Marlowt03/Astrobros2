@@ -1879,3 +1879,38 @@ header{position:sticky;top:0;z-index:10000}
     padding: 2.5rem 1rem 1.5rem !important;
   }
 }
+/* 1. Index Page – Full-view hero video with no cropping */
+body.index .hero {
+  height: 80vh !important;           /* Limit hero height on desktop (was 100vh) :contentReference[oaicite:10]{index=10} */
+  min-height: 500px !important;      /* Keep existing min-height for smaller windows :contentReference[oaicite:11]{index=11} */
+}
+body.index .hero-video {
+  object-fit: contain !important;    /* Show entire video frame (no cropping) :contentReference[oaicite:12]{index=12} */
+  object-position: center center !important;  /* Center the video within its container */
+  background-color: #000 !important; /* Fill any letterbox space with black :contentReference[oaicite:13]{index=13} */
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* 2. Location Page – Contain and center the header image */
+body.location .page-hero {
+  background-size: contain !important;   /* Show entire background image (no cropping) */
+  background-position: center center !important; /* Center image within header */
+  /* (The existing secondary background-color will show behind any gaps) */
+}
+
+/* 3. About & Menu Pages – Ensure hero images stay covered (zoomed in) */
+body.about .page-hero,
+body.menu .page-hero {
+  background-size: cover !important;     /* Fill the space, allowing edges to be cropped */
+  background-position: center center !important; /* Center the image for balanced cropping */
+}
+
+/* 4. Responsive adjustments for smaller screens */
+@media (max-width: 900px) {
+  /* Home page hero – use a smaller height on mobile to avoid huge video area */
+  body.index .hero {
+    height: 65vh !important;    /* More compact hero on phones/tablets (was ~100vh) */
+  }
+  /* (The mobile font sizes and paddings for hero text remain as defined in existing CSS) */
+}
