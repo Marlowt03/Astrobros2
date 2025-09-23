@@ -14,18 +14,23 @@
 </head>
 <body id="top">
   <header>
-    <nav class="navbar">
-      <a href="index.html" class="logo brand-name">ASTROBROS</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="menu.html">Menu</a></li>
-        <li><a href="location.html">Visit</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-      <button class="nav-toggle" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
+<nav class="navbar">
+  <a href="index.html" class="logo brand-name">ASTROBROS</a>
+
+  <ul id="site-menu" class="nav-links" role="menu" aria-hidden="true">
+    <li><a href="index.html" role="menuitem">Home</a></li>
+    <li><a href="menu.html" role="menuitem">Menu</a></li>
+    <li><a href="location.html" role="menuitem">Visit</a></li>
+    <li><a href="about.html" role="menuitem">About</a></li>
+  </ul>
+
+  <button class="nav-toggle"
+          aria-label="Open menu"
+          aria-controls="site-menu"
+          aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
   </header>
 
   <main>
