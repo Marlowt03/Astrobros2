@@ -1859,3 +1859,11 @@ header {
   /* Prevent background scroll when nav is open */
   body.nav-open { overflow: hidden !important; }
 }
+/* --- NAV OPEN STATE FIXES --- */
+body.nav-open .navbar {
+  z-index: 0 !important;   /* pushes navbar behind the fullscreen overlay */
+}
+
+.nav-toggle.open span {
+  background-color: #fff !important;  /* makes the hamburger/X white for contrast */
+}
