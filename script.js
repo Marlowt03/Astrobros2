@@ -57,3 +57,27 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('touchstart', playOnClick);
   }
 });
+ // Back-to-top button (auto-injected on all pages)
+  (function(){
+    const btn = document.createElement('button');
+    btn.className = 'back-to-top';
+    btn.setAttribute('type','button');
+    btn.setAttribute('aria-label','Back to top');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7-1.41 1.41L13 9.83V20h-2V9.83L6.41 13.41 5 12z" fill="currentColor"/></svg>';
+    document.body.appendChild(btn);
+
+    const showAt = 200; // px scrolled before showing
+    const onScroll = () => {
+      if (window.scrollY > showAt) btn.classList.add('show');
+      else btn.classList.remove('show');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    btn.addEventListener('click', () => {
+      const opt = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? { top: 0, behavior: 'auto' }
+        : { top: 0, behavior: 'smooth' };
+      window.scrollTo(opt);
+    });
+  })();
