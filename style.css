@@ -1711,3 +1711,17 @@ header{position:sticky;top:0;z-index:10000}
   .menu-item h3{font-size:1rem}
   .menu-item p{font-size:.82rem}
 }
+/* --- Fix quicknav cut-off --- */
+
+/* push quicknav slightly lower so it clears the main header */
+.menu-quicknav {
+  top: 5rem; /* was 4rem, increase to match your header height */
+}
+
+/* increase scroll offset so section titles aren’t hidden */
+#flavors,
+#stackers,
+#dubai,
+#taiyaki {
+  scroll-margin-top: 5.2rem; /* match the new top value */
+}
