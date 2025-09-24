@@ -2001,3 +2001,41 @@ body.nav-open .navbar{ z-index:0 !important; }
     line-height: 1.34 !important;
   }
 }
+/* ===== MOBILE REFINEMENTS ===== */
+@media (max-width: 900px){
+
+  /* HOME: hero shorter + more zoomed out video */
+  body.index .hero{
+    height: 42vh !important;      /* shorter than before */
+    min-height: 240px !important;
+  }
+  body.index .video-wrapper video,
+  body.index .hero-video{
+    object-fit: contain !important;   /* show more of the frame */
+    object-position: center center !important;
+    background-color:#000 !important; /* fill any gap cleanly */
+  }
+
+  /* VISIT: hero smaller and zoomed in */
+  body.location .page-hero{
+    min-height: 24vh !important;      /* shorter section */
+    padding: 1.5rem 1rem !important;
+    background-size: cover !important;     /* zoom in (crop to fill) */
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+}
+
+/* ===== DESKTOP RESTORE ===== */
+@media (min-width: 901px){
+  body.index .hero{
+    height: 100vh !important;
+    min-height: 500px !important;
+  }
+  body.index .hero-video{ object-fit: cover !important; }
+  body.location .page-hero{
+    min-height: 40vh !important;
+    background-size: cover !important;
+    background-position: center top !important;
+  }
+}
