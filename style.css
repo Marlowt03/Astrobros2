@@ -2098,3 +2098,27 @@ body.menu .menu-item img{
 @media (min-width: 1024px){
   body.menu .menu-item img{ height: 200px !important; }
 }
+/* ===== MENU DESKTOP LAYOUT FORCE ===== */
+@media (min-width: 1024px){
+  /* Flavors = 4 across */
+  body.menu #flavors .menu-grid{
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0,1fr)) !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Others = 3 across */
+  body.menu #stackers .menu-grid,
+  body.menu #dubai .menu-grid,
+  body.menu #taiyaki .menu-grid{
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Prevent card width caps from fighting grid */
+  body.menu .menu-item{
+    max-width: none !important;
+    width: 100% !important;
+  }
+}
