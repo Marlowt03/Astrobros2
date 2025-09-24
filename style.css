@@ -2154,3 +2154,13 @@ body.menu .menu-item img{
   }
   .menu-item img{ height:140px !important; object-fit:cover !important; }
 }
+#dubai .menu-item.more-dubai {
+  min-width: 200px !important;
+  max-width: 280px !important;
+}
+
+#dubai .menu-item.more-dubai h3,
+#dubai .menu-item.more-dubai p {
+  text-align: center !important;
+  white-space: normal !important;
+}
