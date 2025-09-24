@@ -2122,3 +2122,35 @@ body.menu .menu-item img{
     width: 100% !important;
   }
 }
+/* Desktop layout force without body classes */
+@media (min-width: 1024px){
+  /* Flavors = 4 across */
+  #flavors .menu-grid{
+    display:grid !important;
+    grid-template-columns:repeat(4, minmax(0,1fr)) !important;
+    gap:1.25rem !important;
+  }
+  /* Others = 3 across */
+  #stackers .menu-grid,
+  #dubai .menu-grid,
+  #taiyaki .menu-grid{
+    display:grid !important;
+    grid-template-columns:repeat(3, minmax(0,1fr)) !important;
+    gap:1.25rem !important;
+  }
+  /* Prevent card caps fighting grid */
+  .menu-item{ max-width:none !important; width:100% !important; }
+}
+
+/* Mobile: two columns on all menu sections */
+@media (max-width: 900px){
+  #flavors .menu-grid,
+  #stackers .menu-grid,
+  #dubai .menu-grid,
+  #taiyaki .menu-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2, minmax(140px,1fr)) !important;
+    gap:.9rem !important;
+  }
+  .menu-item img{ height:140px !important; object-fit:cover !important; }
+}
