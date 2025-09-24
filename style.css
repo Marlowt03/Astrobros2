@@ -2051,3 +2051,50 @@ body.nav-open .navbar{ z-index:0 !important; }
     object-position: center center !important;
   }
 }
+/* ===== MENU GRIDS: phone → 2 cols, tablet → 3, desktop → flavors 4 / others 3 ===== */
+body.menu .menu-grid,
+body.menu .menu-grid.stackers-grid,
+body.menu .menu-grid.dubai-grid,
+body.menu .menu-grid.taiyaki-grid{
+  display:grid !important;
+  grid-template-columns: repeat(2, minmax(140px, 1fr)) !important;  /* phones */
+  gap: 0.9rem !important;
+}
+
+@media (min-width: 600px){
+  body.menu .menu-grid,
+  body.menu .menu-grid.stackers-grid,
+  body.menu .menu-grid.dubai-grid,
+  body.menu .menu-grid.taiyaki-grid{
+    grid-template-columns: repeat(3, minmax(160px, 1fr)) !important; /* small tablets */
+    gap: 1rem !important;
+  }
+}
+
+@media (min-width: 1024px){
+  /* Desktop: flavors = 4 across (matches what you like) */
+  body.menu #flavors .menu-grid{
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  /* Desktop: others = 3 across */
+  body.menu .menu-grid.stackers-grid,
+  body.menu .menu-grid.dubai-grid,
+  body.menu .menu-grid.taiyaki-grid{
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Card sizing so mobile doesn’t look huge */
+body.menu .menu-item{
+  max-width: 100% !important;
+}
+body.menu .menu-item img{
+  height: 140px !important;
+  object-fit: cover !important;
+}
+@media (min-width: 600px){
+  body.menu .menu-item img{ height: 170px !important; }
+}
+@media (min-width: 1024px){
+  body.menu .menu-item img{ height: 200px !important; }
+}
