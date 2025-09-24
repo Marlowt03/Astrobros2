@@ -2039,3 +2039,15 @@ body.nav-open .navbar{ z-index:0 !important; }
     background-position: center top !important;
   }
 }
+/* MOBILE: tighten hero height and crop video just enough to kill bars */
+@media (max-width: 900px){
+  body.index .hero{
+    height: 40vh !important;     /* shorter hero */
+    min-height: 220px !important;
+  }
+  body.index .video-wrapper video,
+  body.index .hero-video{
+    object-fit: cover !important;        /* fills box, no bars */
+    object-position: center center !important;
+  }
+}
