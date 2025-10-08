@@ -99,7 +99,7 @@ header {
   font-weight: 700;
   color: #ffffff;       /* changed from var(--color-brown) */
   text-transform: uppercase;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
 /* Hamburger toggle for mobile */
