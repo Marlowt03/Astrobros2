@@ -97,8 +97,9 @@ header {
 .brand-name {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--color-brown);
+  color: #ffffff;       /* changed from var(--color-brown) */
   text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
 /* Hamburger toggle for mobile */
