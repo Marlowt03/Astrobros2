@@ -63,7 +63,7 @@ header {
   padding: 1rem 2rem;
   position: relative;
   overflow: visible;
-  background: linear-gradient(90deg, #ffe394, #fcd34d);
+  background: linear-gradient(90deg, #8a2be2, #3b82f6); /* purple → blue */
   border-bottom: none;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 95% 90%, 85% 85%, 75% 95%, 65% 85%, 55% 95%, 45% 85%, 35% 95%, 20% 90%, 0 80%);
 }
