@@ -25,21 +25,21 @@
       cursor: pointer;
     }
   </style>
- <style id="fix-home-mobile">
-/* force small hero text on phones, and keep video framed */
-@media (max-width: 900px){
-  .hero{min-height:65vh !important}
-  .hero .hero-content{padding:1.2rem 1rem !important; max-width:34rem !important}
-  .hero .hero-content h1{font-size:1.05rem !important; line-height:1.2 !important; letter-spacing:0 !important}
-  .hero .hero-content p {font-size:.90rem !important; line-height:1.35 !important}
 
-  /* video behavior on iOS */
-  .video-wrapper{position:absolute !important; inset:0 !important; overflow:hidden !important}
-  .hero-video{position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; object-fit:cover !important; transform:none !important; filter:none !important}
-  .overlay{background:rgba(0,0,0,.35) !important}
-}
-</style>
-  <!-- Removed inline mobile nav script; navigation is handled in script.js -->
+  <style id="fix-home-mobile">
+    /* force small hero text on phones, and keep video framed */
+    @media (max-width: 900px){
+      .hero{min-height:65vh !important}
+      .hero .hero-content{padding:1.2rem 1rem !important; max-width:34rem !important}
+      .hero .hero-content h1{font-size:1.05rem !important; line-height:1.2 !important; letter-spacing:0 !important}
+      .hero .hero-content p {font-size:.90rem !important; line-height:1.35 !important}
+
+      /* video behavior on iOS */
+      .video-wrapper{position:absolute !important; inset:0 !important; overflow:hidden !important}
+      .hero-video{position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; object-fit:cover !important; transform:none !important; filter:none !important}
+      .overlay{background:rgba(0,0,0,.35) !important}
+    }
+  </style>
 </head>
 <body class="index">
   <!-- Header / Nav -->
@@ -64,7 +64,7 @@
     <!-- HERO SECTION -->
     <section class="hero">
       <div class="video-wrapper" aria-hidden="true">
-        <video id="heroVideo" class="hero-video" autoplay muted playsinline webkit-playsinline loop preload="auto" preload="metadata">
+        <video id="heroVideo" class="hero-video" autoplay muted playsinline webkit-playsinline loop preload="auto">
           <source src="./videos/astrobros_hero.m4v" type="video/mp4" />
           <source src="./videos/astrobros_hero.m4v" type="video/x-m4v" />
           <!-- Optional: add a webm source if available -->
@@ -156,8 +156,8 @@
     <section class="flavor-month">
       <h2>Flavor of the Month</h2>
       <div class="flavor-card">
-        <a href="menu.html#michigan-pothole">
-          <img src="images/ashbys-michigan-pothole-ice-cream.png" alt="Michigan Pothole" />
+        <a href="menu.html#cleveland-pothole">
+          <img src="images/ashbys-michigan-pothole-ice-cream.png" alt="Cleveland Pothole" />
         </a>
         <div class="flavor-text">
           <h3>Cleveland Pothole</h3>
@@ -165,7 +165,7 @@
             A chocolate lover’s dream with chunks of brownie and fudge. Our flavor of the month is rich, indulgent, and perfect for autumn.
           </p>
           <a class="btn primary" href="location.html#visit-card">Try It Now</a>
-          <a class="btn" href="menu.html#michigan-pothole">View on Menu</a>
+          <a class="btn" href="menu.html#cleveland-pothole">View on Menu</a>
         </div>
       </div>
     </section>
