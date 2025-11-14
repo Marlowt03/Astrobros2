@@ -2165,3 +2165,8 @@ body.menu .menu-item img{
   text-align: center !important;
   white-space: normal !important;
 }
+
+/* Make anchor jump to Cleveland Pothole line up correctly */
+#cleveland-pothole {
+  scroll-margin-top: 140px; /* adjust value if needed */
+}
