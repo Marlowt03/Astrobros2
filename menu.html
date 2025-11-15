@@ -4,15 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Menu – AstroBros</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Main Styles -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-Specific Overrides -->
   <style id="last-overrides-menu">
+    /* make menu headers bigger on phone */
     @media (max-width: 900px){
-      /* make menu headers bigger on phone */
-      html body .page-hero h1{font-size:1.95rem !important;line-height:1.20 !important}
-      html body .menu-section h2{font-size:1.65rem !important;line-height:1.25 !important}
+      html body .page-hero h1 {
+        font-size: 1.95rem !important;
+        line-height: 1.20 !important;
+      }
+      html body .menu-section h2 {
+        font-size: 1.65rem !important;
+        line-height: 1.25 !important;
+      }
+    }
+
+    /* FORCE STACKERS INTO 2 ROWS OF 4 ON DESKTOP */
+    .stacker-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+
+    .stacker-item {
+      width: 100%;
+    }
+
+    /* Tablet: 2 columns */
+    @media (max-width: 900px) {
+      .stacker-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* Mobile: 1 column */
+    @media (max-width: 600px) {
+      .stacker-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
